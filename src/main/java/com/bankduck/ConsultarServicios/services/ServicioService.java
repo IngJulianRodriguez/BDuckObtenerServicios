@@ -1,9 +1,11 @@
 package com.bankduck.ConsultarServicios.services;
 
 import com.bankduck.ConsultarServicios.common.RequisitosServicioResponseMapper;
+import com.bankduck.ConsultarServicios.common.ServicioItemResponseMapper;
 import com.bankduck.ConsultarServicios.common.ServicioRequestMapper;
 import com.bankduck.ConsultarServicios.common.ServicioResponseMapper;
 import com.bankduck.ConsultarServicios.dto.RequisitosServicioResponse;
+import com.bankduck.ConsultarServicios.dto.ServicioItemResponse;
 import com.bankduck.ConsultarServicios.dto.ServicioRequest;
 import com.bankduck.ConsultarServicios.dto.ServicioResponse;
 import com.bankduck.ConsultarServicios.entities.RequisitosServicio;
@@ -33,7 +35,14 @@ public class ServicioService {
     @Autowired
     RequisitosServicioResponseMapper requisitosServicioResponseMapper;
 
+    @Autowired
+    ServicioItemResponseMapper servicioItemResponseMapper;
 
+    public List<ServicioItemResponse> ObtenerTodos (){
+        List<Servicio> findAll = servicioRepository.findAll();
+        List<ServicioItemResponse> servicioListToServicioItemResponseList = servicioItemResponseMapper.ServicioListToServicioItemResponseList(findAll);
+        return servicioListToServicioItemResponseList;
+    }
     public List<RequisitosServicioResponse> listarRequisitosServicio(Long id){
         Optional<Servicio> findById = servicioRepository.findById(id);
         List<RequisitosServicioResponse> requisitosServicioResponses = new ArrayList<>();

@@ -33,24 +33,6 @@ import org.springframework.web.server.ResponseStatusException;
 public class ServicioRestController {
 
     @Autowired
-    ServicioRepository servicioRepository;
-
-    @Autowired
-    RequisitosServicioRepository requisitosServicioRepository;
-
-    @Autowired
-    ServicioResponseMapper servicioResponseMapper;
-
-    @Autowired
-    ServicioRequestMapper servicioRequestMapper;
-
-    @Autowired
-    RequisitosServicioResponseMapper requisitosServicioResponseMapper;
-
-    @Autowired
-    ServicioItemResponseMapper servicioItemResponseMapper;
-
-    @Autowired
     ServicioService servicioService;
 
     @ApiOperation(value = "Retorna todos los servicios disponibles", notes = "Retorna 204 sino hay datos")
@@ -59,9 +41,8 @@ public class ServicioRestController {
             @ApiResponse(code = 500, message = "Internal error")})
     @GetMapping()
     public List<ServicioItemResponse> list() {
-        List<Servicio> findAll = servicioRepository.findAll();
-        List<ServicioItemResponse> servicioListToServicioItemResponseList = servicioItemResponseMapper.ServicioListToServicioItemResponseList(findAll);
-        return servicioListToServicioItemResponseList;
+        List<ServicioItemResponse> listServicioItemResponse= servicioService.ObtenerTodos();
+        return listServicioItemResponse;
     }
 
     @GetMapping("/requisitos/{id}")
