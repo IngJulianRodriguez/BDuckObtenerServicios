@@ -1,14 +1,14 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:502711948570:task-definition/consultarservicios:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:502711948570:task-definition/consultarservicios:2",
     "containerDefinitions": [
         {
             "name": "consultarservicios",
-            "image": "502711948570.dkr.ecr.us-east-2.amazonaws.com/consultarservicios",
+            "image": "502711948570.dkr.ecr.us-east-2.amazonaws.com/consultarservicios:050c1c8dbd2606e5bb1b5c23a76db8ea1c6075cb",
             "cpu": 0,
             "memory": 1024,
             "portMappings": [
                 {
-                    "name": "enviarsms-7081-tcp",
+                    "name": "consultarservicios-7081-tcp",
                     "containerPort": 7081,
                     "hostPort": 7081,
                     "protocol": "tcp",
@@ -33,7 +33,7 @@
     "family": "consultarservicios",
     "executionRoleArn": "arn:aws:iam::502711948570:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -76,7 +76,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-11-16T23:02:49.088Z",
+    "registeredAt": "2023-11-16T23:46:54.895Z",
     "registeredBy": "arn:aws:iam::502711948570:root",
     "tags": []
 }
