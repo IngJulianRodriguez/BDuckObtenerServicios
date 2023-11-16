@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:502711948570:task-definition/bduck-consultarservicios-task:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:502711948570:task-definition/consultarservicios:1",
     "containerDefinitions": [
         {
             "name": "consultarservicios",
@@ -8,7 +8,7 @@
             "memory": 1024,
             "portMappings": [
                 {
-                    "name": "consultarservicios-7081-tcp",
+                    "name": "enviarsms-7081-tcp",
                     "containerPort": 7081,
                     "hostPort": 7081,
                     "protocol": "tcp",
@@ -17,23 +17,20 @@
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/bduck-consultarservicios-task",
+                    "awslogs-group": "/ecs/consultarservicios",
                     "awslogs-region": "us-east-2",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             }
         }
     ],
-    "family": "bduck-consultarservicios-task",
+    "family": "consultarservicios",
     "executionRoleArn": "arn:aws:iam::502711948570:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
@@ -79,7 +76,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-11-16T22:22:58.707Z",
+    "registeredAt": "2023-11-16T23:02:49.088Z",
     "registeredBy": "arn:aws:iam::502711948570:root",
     "tags": []
 }
