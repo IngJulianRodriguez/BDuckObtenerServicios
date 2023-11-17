@@ -4,5 +4,5 @@ USER javams:devopsc
 ENV JAVA_OPTS="-Xms256M -Xmx256M"
 ADD target/ConsultarServicios-0.0.1-SNAPSHOT.jar app.jar
 VOLUME /tmp
-EXPOSE 7083
+EXPOSE 7081
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
